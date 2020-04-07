@@ -1,0 +1,18 @@
+<div *ngIf='searchList;else noData'>
+<div class="card mb-3" *ngFor='let items of searchList.items' >
+    <div class="card-body row">
+        <div class="col-lg-4 col-md-4 col-sm-10 text-center">
+            <img [src]="items.avatar_url" class="card-img" alt="...">
+          </div>  
+          <div class="col-lg-4 col-md-4 col-sm-10 text-center">
+            <div class="card-body">
+              <p class="text-muted">Username:<span> {{items.login}}</span></p>
+              <p class="text-muted">Id:<span> {{items.id}}</span></p>
+            </div>
+          </div>
+    </div>
+</div>
+</div>
+<ng-template #noData>
+  <h3 class="text-center text-muted">no users</h3>
+</ng-template>
