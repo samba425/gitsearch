@@ -15,11 +15,10 @@ export class SearchComponent implements OnInit {
     this.spinner = true;
     this.searchList = '';
     this.gitSearch.searchUser(data.value.user).subscribe((res) => {
-      if(res['items'].length) {
-        this.searchList = res;
-      }
+      if(res['items'].length)  this.searchList = res;
     this.spinner = false
-    },err => console.log('error',err))
+    },err =>    this.spinner = false);
+    data.reset();
   }
 
   ngOnInit() {
